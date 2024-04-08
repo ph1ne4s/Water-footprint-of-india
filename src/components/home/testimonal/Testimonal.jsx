@@ -4,6 +4,7 @@ import Heading from "../../common/heading/Heading"
 import "./style.css"
 
 const Testimonal = () => {
+  const [showMore, setShowMore] = React.useState(false)
   return (
     <>
       <section className='testimonal padding'>
@@ -23,7 +24,9 @@ const Testimonal = () => {
                     <span>{val.post}</span>
                   </div> */}
                 </div>
-                <p>{val.desc}</p>
+                <p>{showMore ? val.desc : `${val.desc.substring(0, 250)}`}
+                  <button className="btn" onClick={() => setShowMore(!showMore)}> Read more...
+                  </button></p>
               </div>
             ))}
           </div>
