@@ -1,12 +1,12 @@
 import React from "react"
-import Back from "../common/back/Back"
+import Back1 from "../common/back/Back1"
 import BlogCard from "./BlogCard"
 import "./blog.css"
 
 const Blog = () => {
   return (
     <>
-      <Back title='Blog Posts' />
+      <Back1 title='Blog Posts' />
       <section className='blog padding'>
         <div className='container grid2'>
           <BlogCard />

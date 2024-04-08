@@ -86,7 +86,7 @@ p {
 }
 
 .back {
-  background-image: url("../public/images/back.webp");
+  background-image: url("../public/images/bck2.jpg");
   background-size: cover;
   background-attachment: fixed;
   position: absolute;
@@ -99,6 +99,30 @@ p {
   padding-right: 50px;
   color: #fff;
   text-align: center;
+}
+.back1 {
+  background-image: url("../public/images/bck3.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  padding-top: 30%;
+  padding-right: 50px;
+  color: #fff;
+  text-align: center;
+}
+.back1 h1 {
+  font-size: 100px;
+  font-weight: 400;
+}
+.back1 h2 {
+  font-weight: 500;
+  font-size: 17px;
+  text-transform: uppercase;
 }
 .back h1 {
   font-size: 100px;
