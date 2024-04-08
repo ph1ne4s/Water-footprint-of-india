@@ -11,12 +11,12 @@ export const homeAbout = [
     title: "Earn A Certificates",
     desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
   },
-  {
-    id: 1,
-    cover: "https://img.icons8.com/ios/80/000000/athlete.png",
-    title: "Learn with Expert",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-  },
+  // {
+  //   id: 1,
+  //   cover: "https://img.icons8.com/ios/80/000000/athlete.png",
+  //   title: "Learn with Expert",
+  //   desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+  // },
 ]
 export const awrapper = [
   {
