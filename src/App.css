@@ -101,7 +101,7 @@ p {
   text-align: center;
 }
 .back1 {
-  background-image: url("../public/images/bck.jpg");
+  background-image: url("../public/images/bg.webp");
   background-size: cover;
   background-attachment: fixed;
   position: absolute;
