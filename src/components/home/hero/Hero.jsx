@@ -8,15 +8,15 @@ const Hero = () => {
       <section className='hero'>
         <div className='container'>
           <div className='row'>
-            <Heading subtitle='WELCOME TO ACADEMIA' title='Best Online Education Expertise' />
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <Heading subtitle='' title='What is Water Footprint?' />
+            <p>The water footprint is the total amount of freshwater used directly and indirectly to produce goods and services. It includes rainwater, surface/groundwater used in agriculture, industry, and domestic settings, and water needed to dilute pollutants. This concept helps assess environmental impact, identify conservation opportunities, and promote sustainable water management. It aids companies, governments, and individuals in understanding dependencies and enhancing water security.</p>
             <div className='button'>
               <button className='primary-btn'>
-                GET STARTED NOW <i className='fa fa-long-arrow-alt-right'></i>
+                Calculate your Water footprint <i className='fa fa-long-arrow-alt-right'></i>
               </button>
-              <button>
+              {/* <button>
                 VIEW COURSE <i className='fa fa-long-arrow-alt-right'></i>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
