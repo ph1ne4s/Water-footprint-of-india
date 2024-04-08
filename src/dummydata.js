@@ -392,23 +392,40 @@ export const blog = [
 export const testimonal = [
   {
     id: 1,
-    name: "ROGER SCOTT",
+    name: "What is Water Footprint?",
     post: "MARKETING MANAGER",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    desc: "The water footprint refers to the total amount of freshwater utilized, directly and indirectly, in producing goods and services by individuals, communities, or nations. Comprising green, blue, and grey components, it encompasses the volume of rainwater and surface/groundwater utilized in agriculture, industry, and domestic settings and the water needed to dilute pollutants. The water footprint concept helps assess the environmental impact of water use, identify opportunities for conservation, enhance water security at local, regional, and global scales, and promote sustainable water management practices. It helps companies, governments, and individuals understand dependencies, resource protection, and food/energy security.",
     cover: "./images/testo/t1.webp",
   },
   {
     id: 2,
-    name: "ROGER SCOTT",
+    name: "WHAT IS DIRECT AND INDIRECT WATER USAGE?",
     post: "MARKETING MANAGER",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    desc: "Direct water use refers to water consumption for specific purposes that are immediately identifiable, such as drinking, cooking, bathing, and sanitation. This includes water individuals, households, and businesses use for immediate needs.Indirect water use refers to the water used in producing goods and services but may not be immediately apparent to the end consumer. This includes water used in agriculture to grow crops, in industry for manufacturing processes, and in energy production. Indirect water use also encompasses virtual water embedded in traded goods. For example, the production of agricultural products requires significant water input, and when these products are exported/imported, they carry with them the virtual water used in their production.",
     cover: "./images/testo/t2.webp",
   },
   {
     id: 3,
-    name: "ROGER SCOTT",
+    name: "What are Types of Water Footprint?",
     post: "MARKETING MANAGER",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    desc: `On the basis of the source of water supply, the water footprint can be classified as blue, green, or grey Water Footprint. 
+    1. Blue Water Footprint: 
+    The blue water footprint represents the volume of surface water and groundwater consumed or polluted during human activities. This includes water withdrawn from rivers, lakes, aquifers, and reservoirs for irrigation, industrial processes, and domestic use. 
+    2. Green Water Footprint:
+    This component refers to the volume of rainwater consumed during the growth of crops and vegetation (rainwater insofar as it does not become run-off). It includes water absorbed by the soil and used by plants for photosynthesis and growth through evapotranspiration. 
+    3. Grey Water Footprint: 
+    The grey water footprint refers to the volume of water required to dilute the polluted water to meet agreed water quality standards so that it may be discharged to the natural water system. This involves information on natural background concentrations of pollutants and ambient water quality standards.
+    
+     The water footprint can be further divided into an internal and an external water footprint. 
+    
+    
+        1. Internal Water Footprint: 
+    The internal water footprint refers to the total volume of water used within a defined geographical boundary or by a specific entity. Water within the country is used to produce goods and services consumed by the national population. It includes direct and indirect water use associated with various activities such as agriculture, industry, and domestic consumption.
+     For example, a country's internal water footprint would encompass all water used within its borders for irrigation, manufacturing, drinking water supply, and other purposes. Similarly, a company's internal water footprint would include water consumed in its production processes, office operations, and supply chains.
+    
+        2. External Water Footprint: 
+    Annual volume of water resources used in other countries to produce goods and services imported and consumed in the country considered. It is also known as virtual water or embodied water. 
+    For instance, when a country imports water-intensive commodities such as agricultural products or manufactured goods, it effectively imports the water used in its production, thus contributing to its external water footprint. Conversely, when a country exports goods, it transfers its water footprint to the importing countries.`,
     cover: "./images/testo/t3.webp",
   },
 ]

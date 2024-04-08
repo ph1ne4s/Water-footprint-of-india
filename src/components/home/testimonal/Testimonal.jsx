@@ -4,26 +4,26 @@ import Heading from "../../common/heading/Heading"
 import "./style.css"
 
 const Testimonal = () => {
+  const [showMore, setShowMore] = React.useState(false)
   return (
     <>
       <section className='testimonal padding'>
         <div className='container'>
-          <Heading subtitle='TESTIMONIAL' title='Our Successful Students' />
+          <Heading subtitle='FAQs' title='Have Questions?' />
 
           <div className='content grid2'>
             {testimonal.map((val) => (
               <div className='items shadow'>
                 <div className='box flex'>
-                  <div className='img'>
-                    <img src={val.cover} alt='' />
-                    <i className='fa fa-quote-left icon'></i>
-                  </div>
+                  
                   <div className='name'>
                     <h2>{val.name}</h2>
-                    <span>{val.post}</span>
+                    
                   </div>
                 </div>
-                <p>{val.desc}</p>
+                <p>{showMore ? val.desc : `${val.desc.substring(0, 250)}`}
+                  <button className="btn" onClick={() => setShowMore(!showMore)}> Read more...
+                  </button></p>
               </div>
             ))}
           </div>
