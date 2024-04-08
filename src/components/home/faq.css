@@ -1,0 +1,32 @@
+/* FAQ section container */
+.faq-container {
+  width: 80%; /* Adjust as needed */
+  margin: 0 auto; /* Center the container */
+  padding: 20px;
+}
+
+/* FAQ title */
+.faq-title {
+  font-weight: 500;
+  font-size: 22px;
+  color: #1eb2a6; /* Change font color */
+  text-align: center; /* Center align the title */
+  font-family: Arial, sans-serif; /* Change font */
+}
+
+/* FAQ row title */
+.faq-row-title {
+  font-weight: bold;
+  color: black;
+}
+
+/* FAQ row content */
+.faq-row-content {
+  color: blue;
+  font-size: 16px;
+}
+
+/* FAQ row */
+.faq-row {
+  margin-bottom: 20px;
+}
