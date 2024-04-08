@@ -92,7 +92,7 @@ const getHeatMapData = () => {
 function IndiaMap({ onStateClick }) {
   // const [stateCode, setStateCode] = useState("");
   // const [stateName, setStateName] = useState("");
-  const navigate = useHistory();
+  const history = useHistory();
   const [data] = useState(getHeatMapData());
 
   const gradientData = {
@@ -111,7 +111,8 @@ function IndiaMap({ onStateClick }) {
       // setStateCode(geo.id);
       // setStateName(clickedState);
       
-      navigate(`/${clickedState}`);
+    //   navigate(`/${clickedState}`);
+    history.push(`/${clickedState}`);
       
       console.log("Id", geo.id);
       console.log("Name", clickedState);
