@@ -9,7 +9,7 @@ const HAbout = () => {
     <>
       <section className='homeAbout'>
         <div className='container'>
-          <Heading subtitle='our courses' title='explore our popular online courses' />
+          <Heading subtitle="FAQ's" title="Some commonly Discussed FAQ's" />
 
           <div className='coursesCard'>
             {/* copy code form  coursesCard */}
@@ -60,7 +60,7 @@ const HAbout = () => {
             </div>
           </div>
         </div>
-        <OnlineCourses />
+        {/* <OnlineCourses /> */}
       </section>
     </>
   )

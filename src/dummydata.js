@@ -1,16 +1,17 @@
 export const homeAbout = [
   {
     id: 1,
-    cover: "https://img.icons8.com/dotty/80/000000/storytelling.png",
-    title: "Online Courses",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    cover: "https://img.icons8.com/ios/80/000000/diploma.png",
+    // title: "2.	National/State Water Use",
+    desc: "This component tracks regional freshwater usage for agriculture, industry, and households, including extraction from local sources like rivers and groundwater.",
   },
   {
     id: 1,
-    cover: "https://img.icons8.com/ios/80/000000/diploma.png",
-    title: "Earn A Certificates",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    cover: "https://img.icons8.com/dotty/80/000000/storytelling.png",
+    // title: "Online Courses",
+    desc: "The map on your left illustrates the water footprint for Indian states and union territories. Click on each to view detailed information.",
   },
+  
   // {
   //   id: 1,
   //   cover: "https://img.icons8.com/ios/80/000000/athlete.png",
@@ -392,23 +393,23 @@ export const blog = [
 export const testimonal = [
   {
     id: 1,
-    name: "ROGER SCOTT",
-    post: "MARKETING MANAGER",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    name: "",
+    post: "",
+    desc: "1.) The water footprint analysis enables assessment of consumption patterns and environmental impacts, including dependencies on foreign water resources.",
     cover: "./images/testo/t1.webp",
   },
   {
     id: 2,
-    name: "ROGER SCOTT",
-    post: "MARKETING MANAGER",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    name: "",
+    post: "",
+    desc: "2.) It aids in evaluating sustainability within river basins by comparing aggregated human water footprints with available water resources and supports companies in understanding water usage in their supply chains.",
     cover: "./images/testo/t2.webp",
   },
   {
     id: 3,
-    name: "ROGER SCOTT",
-    post: "MARKETING MANAGER",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    name: "",
+    post: "",
+    desc: "3.) This information assists policymakers, researchers, and stakeholders in identifying conservation opportunities, improving efficiency, and implementing sustainable water management practices to ensure water security and sustainability.",
     cover: "./images/testo/t3.webp",
   },
 ]

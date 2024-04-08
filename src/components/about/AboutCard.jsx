@@ -15,7 +15,7 @@ const AboutCard = () => {
             <IndiaMap/>
           </div>
           <div className='right row'>
-            <Heading subtitle='LEARN ANYTHING' title='Benefits About Online Learning Expertise' />
+            <Heading subtitle='' title='National/State Water Use' />
             <div className='items'>
               {homeAbout.map((val) => {
                 return (
