@@ -8,40 +8,50 @@ import './statePage.css';
 import Back from "../common/back/Back";
 ChartJS.register(CategoryScale);
 const StateDataVisualization = () => {
-    const selectedState='Uttrakhand';
+    const selectedState='Uttarakhand';
     const [chartType, setChartType] = useState('bar');
-    const [stateDataForSelectedState, setStateDataForSelectedState] = useState([]);
-    // console.log);
+    const [chartData, setChartData] = useState(null);
+
     useEffect(() => {
-        // Set state data based on selected state
-        setStateDataForSelectedState(stateData[selectedState] || []);
+        if (!selectedState) return;
+
+        // Extract data for the selected state
+        const dataForSelectedState = stateData[selectedState];
+
+        // Create chart data object
+        const datasets = Object.keys(dataForSelectedState).map(category => {
+            const categoryData = dataForSelectedState[category];
+            return {
+                label: category,
+                data: categoryData.map(item => item.waterFootprint),
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            };
+        });
+
+        const labels = dataForSelectedState.industriesData.map(item => item.name); // Assuming industriesData exists
+
+        setChartData({
+            labels: labels,
+            datasets: datasets
+        });
     }, [selectedState]);
 
     const handleChartTypeChange = (type) => {
         setChartType(type);
     };
 
-    const chartData = {
-        labels: stateDataForSelectedState.map(item => item.name),
-        datasets: [{
-            label: 'Water Footprint',
-            data: stateDataForSelectedState.map(item => item.waterFootprint),
-            backgroundColor: 'rgba(54, 162, 235, 0.6)', // Change color as needed
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-        }]
-    };
-
     return (
-        
         <div className="state-data-visualization">
-            {/* <Back title="Contact us" /> */}
             <h2>{selectedState} Data Visualization</h2>
             <div className="chart-container">
-                {chartType === 'bar' ? (
-                    <Bar data={chartData} />
-                ) : (
-                    <Pie data={chartData} />
+                {chartData && (
+                    chartType === 'bar' ? (
+                        <Bar data={chartData} />
+                    ) : (
+                        <Pie data={chartData} />
+                    )
                 )}
             </div>
             <div className="chart-toggle">
