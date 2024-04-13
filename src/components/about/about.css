@@ -1,63 +1,81 @@
-/* * WaterCalculator.css */
-
-.container {
-  margin-top: 20px;
+.aboutHome {
+  height: auto;
 }
-
-.card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.aboutHome #heading {
+  text-align: left;
+  padding: 50;
 }
-
-.card-header {
-  background-color: #4caf50;
-  color: #fff;
-  padding: 15px;
-  text-align: center;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.card-body {
-  padding: 20px;
-}
-
-.introduction {
-  font-size: 1.1em;
-}
-
-.table {
+.aboutHome .left img {
   width: 100%;
-  margin-bottom: 20px;
-  border-collapse: collapse;
+  height: 100%;
+  object-fit: cover;
 }
-
-.table td,
-.table th {
-  border: 1px solid #ddd;
-  padding: 10px;
+.aboutHome .right {
+  padding: 80px 50px;
 }
-
-.table th {
-  background-color: #4caf50;
+.aboutHome .items {
+  margin-top: 50px;
+}
+.aboutHome .item {
+  background-color: #fff;
+  margin-top: 30px;
+  padding: 20px;
+  transition: 0.5s;
+}
+.aboutHome .img {
+  width: 200px;
+}
+.aboutHome img {
+  width: 0px;
+  height: 70px;
+}
+.aboutHome .item h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.aboutHome .item p {
+  color: #999999;
+}
+.aboutHome .item:hover {
+  background-color: #1eb2a6;
   color: #fff;
-}
-
-.form-submit-section {
-  margin-top: 20px;
-}
-
-.btn-primary {
-  background-color: #4caf50;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 1em;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0 5px 25px -2px rgb(0 0 0 / 6%);
 }
-
-.btn-primary:hover {
-  background-color: #45a049;
+.aboutHome .item:hover p {
+  color: #fff;
+}
+/*----------awrapper------------*/
+.awrapper {
+  background-image: url("../../../public/images/awrapper.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 30vh;
+  color: #fff;
+}
+.awrapper .box {
+  padding: 70px 0;
+}
+.awrapper img {
+  margin-right: 30px;
+}
+.awrapper h1 {
+  font-size: 50px;
+}
+.awrapper h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+/*----------awrapper------------*/
+@media screen and (max-width: 768px) {
+  .aboutHome .container {
+    flex-direction: column-reverse;
+  }
+  .aboutHome .row {
+    width: 100%;
+  }
+  .awrapper {
+    height: 50vh;
+  }
 }

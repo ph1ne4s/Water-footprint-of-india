@@ -123,7 +123,7 @@ function IndiaMap({ onStateClick }) {
   return (
     <div className="full-width-height container">
         <br/>
-        <Heading subtitle='' title='Click on Indian States' />
+        <Heading subtitle='' title='' />
      <br/>
      <br/>
         <ComposableMap

@@ -33,7 +33,7 @@ const Header = () => {
               <Link to='/contact'>Contact Us</Link>
             </li>
             <li>
-              <Link to='/about'>Calculate</Link>
+              <Link to='/about'>Calculater</Link>
             </li>
           </ul>
           {/* <div className='start'>
