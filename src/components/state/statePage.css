@@ -1,4 +1,5 @@
 .state-data-visualization {
+   
     max-width: 800px;
     margin: 50px auto;
     background-color: #fff;
@@ -6,7 +7,27 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+.cont {
+    /* background-image: url("../public/images/bg.webp"); */
+    background-image: url("../../../public/images/bck2.jpg");
+    left: 0;    
+    top: 0;
+    width: 100%;
+    padding: 30px;
+    z-index: -1;
+    /* background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    padding-top: 30%;
+    padding-right: 50px;
+    color: #fff;
+    text-align: center; */
+  }
 .state-data-visualization h2 {
     text-align: center;
 }

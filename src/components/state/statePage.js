@@ -43,7 +43,8 @@ const StateDataVisualization = () => {
     };
 
     return (
-        <div className="state-data-visualization">
+        <div className='cont'>
+            <div className="state-data-visualization">
             <h2>{selectedState} Data Visualization</h2>
             <div className="chart-container">
                 {chartData && (
@@ -59,6 +60,8 @@ const StateDataVisualization = () => {
                 <button onClick={() => handleChartTypeChange('pie')}>Pie Chart</button>
             </div>
         </div>
+        </div>
+        
     );
 };
 
