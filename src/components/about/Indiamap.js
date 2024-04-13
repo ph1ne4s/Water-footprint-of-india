@@ -107,7 +107,7 @@ function IndiaMap({ onStateClick }) {
     .range(COLOR_RANGE);
 
     function onLocationClick(geo) {
-      const clickedState = geo.properties.NAME_1;
+      const clickedState = geo.properties.name;
       // setStateCode(geo.id);
       // setStateName(clickedState);
       
@@ -117,7 +117,7 @@ function IndiaMap({ onStateClick }) {
       console.log("Id", geo.id);
       console.log("Name", clickedState);
   
-      onStateClick(clickedState);
+      // onStateClick(clickedState);
     }
 
   return (
@@ -136,7 +136,7 @@ function IndiaMap({ onStateClick }) {
           <Geographies geography={INDIA_TOPO_JSON}>
             {({ geographies }) =>
               geographies.map(geo => {
-                console.log(geo.id);
+                // console.log(geo.id);
                 const current = data.find(s => s.id === geo.id);
                 return (
                   <Geography
