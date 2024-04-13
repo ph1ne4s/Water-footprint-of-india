@@ -3,13 +3,14 @@ import { Link } from "react-router-dom"
 import Head from "./Head"
 import "./header.css"
 
+
 const Header = () => {
   const [click, setClick] = useState(false)
 
   return (
     <>
-      <Head />
-      <header>
+      
+      <header >
         <nav className='flexSB'>
           <ul className={click ? "mobile-nav" : "flexSB "} onClick={() => setClick(false)}>
             <li>
@@ -30,6 +31,9 @@ const Header = () => {
             </li>
             <li>
               <Link to='/contact'>Contact Us</Link>
+            </li>
+            <li>
+              <Link to='/about'>Calculate</Link>
             </li>
           </ul>
           {/* <div className='start'>
