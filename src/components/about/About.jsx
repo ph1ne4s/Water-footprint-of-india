@@ -14,7 +14,7 @@ class App extends Component {
           <div className="appForm">
             <div className="pageSwitcher">
               <NavLink
-                to="/sign-in"
+                to="/"
                 activeClassName="pageSwitcherItem-active"
                 className="pageSwitcherItem"
               >
@@ -22,7 +22,7 @@ class App extends Component {
               </NavLink>
               <NavLink
                 exact
-                to="/"
+                to="/sign-in"
                 activeClassName="pageSwitcherItem-active"
                 className="pageSwitcherItem"
               >
@@ -32,7 +32,7 @@ class App extends Component {
 
             <div className="formTitle">
               <NavLink
-                to="/sign-in"
+                to="/"
                 activeClassName="formTitleLink-active"
                 className="formTitleLink"
               >
@@ -41,7 +41,7 @@ class App extends Component {
               or{" "}
               <NavLink
                 exact
-                to="/"
+                to="/sign-in"
                 activeClassName="formTitleLink-active"
                 className="formTitleLink"
               >
@@ -49,8 +49,8 @@ class App extends Component {
               </NavLink>
             </div>
 
-            <Route exact path="/" component={SignUpForm} />
-            <Route path="/sign-in" component={SignInForm} />
+            <Route exact path="/" component={SignInForm} />
+            <Route path="/sign-in" component={SignUpForm} />
           </div>
         </div>
       </Router>
