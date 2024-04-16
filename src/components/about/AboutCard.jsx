@@ -15,13 +15,14 @@ const AboutCard = () => {
             <IndiaMap/>
           </div>
           <div className='right row'>
+            <br/>
             <Heading subtitle='' title='National/State Water Use' />
             <div className='items'>
               {homeAbout.map((val) => {
                 return (
                   <div className='item flexSB'>
                     <div className='img'>
-                      <img src={val.cover} alt='' />
+                      {/* <img src={val.cover} alt='' /> */}
                     </div>
                     <div className='text'>
                       <h2>{val.title}</h2>
