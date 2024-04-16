@@ -19,7 +19,7 @@ const Footer = () => {
             <i className='fab fa-instagram icon'></i>
           </div>
           <div className='box link'>
-            <h3>Explor</h3>
+            <h3>Explore</h3>
             <ul>
               <li><Link to='/about'>About us</Link></li>
               <li><Link to='/service'>Services</Link></li>

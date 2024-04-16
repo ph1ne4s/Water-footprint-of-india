@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 import SignUpForm from "./pages/advanced";
 import SignInForm from "./pages/basic";
+import Back from "../common/back/Back"
 
 import "./App.css";
 
