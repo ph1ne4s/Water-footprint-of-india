@@ -90,10 +90,7 @@ function SignInForm() {
             className="formFieldInput"
           >
             <option value="">Select Country</option>
-            <option value="USA">USA</option>
-            <option value="UK">UK</option>
-            <option value="Canada">Canada</option>
-            <option value="Australia">Australia</option>
+            <option value="India">India</option>
             {/* Add more countries as needed */}
           </select>
         </div>
@@ -223,7 +220,7 @@ function SignInForm() {
         {/* Conditionally render the sum */}
         {showSum && (
           <div className="formField">
-            <p>Sum of Number 1 and Number 2: {sum}</p>
+            <p>Your water footprint is: {sum}</p>
           </div>
         )}
       </form>
