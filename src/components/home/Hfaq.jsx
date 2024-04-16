@@ -8,27 +8,27 @@ const data = {
   title: "",
   rows: [
     {
-      title: "Lorem ipsum dolor sit amet,",
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-        ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-        In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-        Fusce sed commodo purus, at tempus turpis.`,
+      title: "What is the water footprint?",
+      content: `
+      The water footprint encompasses the total amount of freshwater used, directly and indirectly, in the production of goods and services by individuals, communities, or nations. It includes green, blue, and grey components, which represent different sources and uses of water.`,
     },
     {
-      title: "Nunc maximus, magna at ultricies elementum",
+      title: "What is the difference between direct and indirect water use?",
       content:
-        "Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam, vitae convallis ex tortor sed dolor.",
+        " Direct water use refers to the consumption of water for specific purposes immediately identifiable to the user, such as drinking, cooking, and sanitation. Indirect water use, on the other hand, involves water used in the production of goods and services but may not be immediately apparent to the end consumer. This includes water used in agriculture, industry, and energy production.",
     },
     {
-      title: "Curabitur laoreet, mauris vel blandit fringilla",
-      content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-        Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-        Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-        Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. `,
+      title: "What are the types of water footprint?",
+      content: `The water footprint can be classified into blue, green, and grey water footprints based on the source of water supply. Blue water footprint represents surface water and groundwater consumption, green water footprint refers to rainwater used in crop growth, and grey water footprint involves water required to dilute polluted water to meet quality standards.`,
     },
     {
-      title: "What is the package version",
-      content: <p>current version is 1.2.1</p>,
+      title: "How is national/state water footprint calculated?",
+      content: `The national/state water footprint is determined by summing up the total volume of freshwater consumed directly and indirectly within the nation or state boundaries. This includes both water used within the nation/state and virtual water embedded in imported goods and services, minus virtual water exported.`,
+    },
+    {
+      title: "What are the applications of water footprint analysis?",
+      content: `Water footprint analysis can assess water consumption patterns and their environmental impacts, understand dependency on foreign water resources, evaluate the sustainability of water consumption patterns, aid companies in assessing water use in their supply chains, and inform policymakers and stakeholders about opportunities for water conservation and sustainable management practices.
+`,
     },
   ],
 };
