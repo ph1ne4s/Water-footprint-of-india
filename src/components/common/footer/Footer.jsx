@@ -21,9 +21,9 @@ const Footer = () => {
           <div className='box link'>
             <h3>Explore</h3>
             <ul>
-              <li><Link to='/about'>About us</Link></li>
-              <li><Link to='/service'>Services</Link></li>
-              <li><Link to='/blog'>Blog</Link></li>
+              <li><Link to='/about'>Calculator</Link></li>
+              <li><Link to='/team'>Team</Link></li>
+              <li><Link to='/journal'>Journals</Link></li>
               <li><Link to='/contact'>Contact Us</Link></li>
             </ul>
           </div>
@@ -47,7 +47,7 @@ const Footer = () => {
       </footer>
       <div className='legal'>
         <p>
-          Copyright ©2022 All rights reserved | Made with <i className='fa fa-heart'></i> by hehe
+          Copyright ©2024 All rights reserved | Made with <i className='fa fa-heart'></i> by Team WaterFootprint
         </p>
       </div>
     </>

@@ -38,4 +38,28 @@
 
 .chart-container {
     text-align: center;
+    max-height: 400px; /* Set maximum height for the chart container */
+    overflow: auto;
+}
+.cont {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.state-data-visualization {
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    margin-top: 20px;
+}
+
+.chart-toggle button {
+    margin-right: 10px;
+}
+canvas {
+    max-height: 300px; /* Set maximum height for the chart canvas */
 }

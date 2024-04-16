@@ -1,67 +1,96 @@
 import React, { useState, useEffect } from 'react';
-import { Chart as ChartJS, CategoryScale } from 'chart.js/auto';
-
-
 import { Bar, Pie } from 'react-chartjs-2';
 import stateData from './stateData'; // Import stateData object
 import './statePage.css';
-import Back from "../common/back/Back";
-ChartJS.register(CategoryScale);
+
 const StateDataVisualization = () => {
-    const selectedState='Uttarakhand';
+    const [selectedState, setSelectedState] = useState('Uttarakhand');
+    const [selectedCategory, setSelectedCategory] = useState('');
     const [chartType, setChartType] = useState('bar');
     const [chartData, setChartData] = useState(null);
+    const [showChart, setShowChart] = useState(false);
 
     useEffect(() => {
-        if (!selectedState) return;
+        if (!selectedState || !selectedCategory) return;
 
-        // Extract data for the selected state
+        // Extract data for the selected state and category
         const dataForSelectedState = stateData[selectedState];
+        const selectedCategoryData = dataForSelectedState[selectedCategory];
 
         // Create chart data object
-        const datasets = Object.keys(dataForSelectedState).map(category => {
-            const categoryData = dataForSelectedState[category];
-            return {
-                label: category,
-                data: categoryData.map(item => item.waterFootprint),
-                backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            };
-        });
+        const labels = selectedCategoryData.map(item => item.name);
+        const data = selectedCategoryData.map(item => item.waterFootprint);
 
-        const labels = dataForSelectedState.industriesData.map(item => item.name); // Assuming industriesData exists
+        // Generate random colors for each data point
+        const backgroundColors = Array.from({ length: data.length }, () => getRandomColor());
 
         setChartData({
             labels: labels,
-            datasets: datasets
+            datasets: [{
+                label: selectedCategory,
+                data: data,
+                backgroundColor: backgroundColors,
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
         });
-    }, [selectedState]);
+    }, [selectedState, selectedCategory]);
 
     const handleChartTypeChange = (type) => {
         setChartType(type);
     };
 
+    const handleCategoryChange = (e) => {
+        setSelectedCategory(e.target.value);
+    };
+
+    const handleDisplayData = () => {
+        if (selectedState && selectedCategory) {
+            setShowChart(true);
+        }
+    };
+
+    const getRandomColor = () => {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
+
     return (
         <div className='cont'>
             <div className="state-data-visualization">
-            <h2>{selectedState} Data Visualization</h2>
-            <div className="chart-container">
-                {chartData && (
-                    chartType === 'bar' ? (
-                        <Bar data={chartData} />
-                    ) : (
-                        <Pie data={chartData} />
-                    )
+                <h2>{selectedState} Data Visualization</h2>
+                <div>
+                    <select value={selectedCategory} onChange={handleCategoryChange}>
+                        <option value="">Select Category</option>
+                        {Object.keys(stateData[selectedState]).map(category => (
+                            <option key={category} value={category}>{category}</option>
+                        ))}
+                    </select>
+                    <button onClick={handleDisplayData}>Display Data</button>
+                </div>
+                {showChart && (
+                    <div>
+                        <div className="chart-container">
+                            {chartData && (
+                                chartType === 'bar' ? (
+                                    <Bar data={chartData} />
+                                ) : (
+                                    <Pie data={chartData} />
+                                )
+                            )}
+                        </div>
+                        <div className="chart-toggle">
+                            <button onClick={() => handleChartTypeChange('bar')}>Bar Chart</button>
+                            <button onClick={() => handleChartTypeChange('pie')}>Pie Chart</button>
+                        </div>
+                    </div>
                 )}
             </div>
-            <div className="chart-toggle">
-                <button onClick={() => handleChartTypeChange('bar')}>Bar Chart</button>
-                <button onClick={() => handleChartTypeChange('pie')}>Pie Chart</button>
-            </div>
         </div>
-        </div>
-        
     );
 };
 
