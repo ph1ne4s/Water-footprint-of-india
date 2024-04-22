@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 import SignUpForm from "./pages/advanced";
 import SignInForm from "./pages/basic";
-import Back from "../common/back/Back"
+import Back from "../common/back/Back";
 
 import "./App.css";
 
@@ -15,6 +15,7 @@ class App extends Component {
           <div className="appForm">
             <div className="pageSwitcher">
               <NavLink
+                exact
                 to="/"
                 activeClassName="pageSwitcherItem-active"
                 className="pageSwitcherItem"
@@ -23,7 +24,7 @@ class App extends Component {
               </NavLink>
               <NavLink
                 exact
-                to="/sign-in"
+                to="/advanced"
                 activeClassName="pageSwitcherItem-active"
                 className="pageSwitcherItem"
               >
@@ -33,6 +34,7 @@ class App extends Component {
 
             <div className="formTitle">
               <NavLink
+                exact
                 to="/"
                 activeClassName="formTitleLink-active"
                 className="formTitleLink"
@@ -42,7 +44,7 @@ class App extends Component {
               or{" "}
               <NavLink
                 exact
-                to="/sign-in"
+                to="/advanced"
                 activeClassName="formTitleLink-active"
                 className="formTitleLink"
               >
@@ -51,7 +53,7 @@ class App extends Component {
             </div>
 
             <Route exact path="/" component={SignInForm} />
-            <Route path="/sign-in" component={SignUpForm} />
+            <Route path="/advanced" component={SignUpForm} />
           </div>
         </div>
       </Router>
