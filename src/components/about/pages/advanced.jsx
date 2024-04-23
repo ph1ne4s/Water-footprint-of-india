@@ -14,7 +14,9 @@ function SignInForm() {
     meat: false,
   });
   const [milkAmount, setMilkAmount] = useState(""); // State for non-vegetarian options
-  const [fruits,setfruits]=useState("");
+  const [fruits, setFruits] = useState("");
+  const [shower, setShower] = useState("");
+  const [vegetables, setVegetables] = useState("");
 
   const handleChange = (event) => {
     const { name, value, checked } = event.target;
@@ -30,22 +32,32 @@ function SignInForm() {
       }
     } else if (name === "age") {
       setAge(value);
-    } else if (name === "areaType") { // Handling area type radio button change
+    } else if (name === "areaType") {
+      // Handling area type radio button change
       setAreaType(value);
-    } else if (name === "nonVegOption") { // Handling non-vegetarian options checkbox change
+    } else if (name === "nonVegOption") {
+      // Handling non-vegetarian options checkbox change
       setNonVegOptions({ ...nonVegOptions, [value]: checked });
-    } else if (name === "milkAmount") { // Handling milk amount input change
+    } else if (name === "milkAmount") {
+      // Handling milk amount input change
       setMilkAmount(value);
+    } else if (name === "fruits") {
+      // Handling fruits input change
+      setFruits(value);
     }
-    else if (name === "fruits") { // Handling milk amount input change
-      setfruits(value);
+    else if (name === "shower") {
+      // Handling fruits input change
+      setShower(value);
     }
-    
+    else if (name === "vegetables") {
+      // Handling fruits input change
+      setVegetables(value);
+    }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const baseWaterFootprint = 132;
+    const baseWaterFootprint = 110;
     let genderWaterFootprint = 0;
     let dietaryHabitWaterFootprint = {};
     if (age > 15) {
@@ -55,32 +67,36 @@ function SignInForm() {
     }
     if (gender === "male") {
       dietaryHabitWaterFootprint = {
-        vegetarian: 913,
-        non_veg: 913 +
-        (nonVegOptions.egg ? 200 : 0) +
-        (nonVegOptions.fish ? 270 : 0) +
-        (nonVegOptions.meat ? 860 : 0),
+        vegetarian: 770,
+        non_veg:
+          770 +
+          (nonVegOptions.egg ? 200 : 0) +
+          (nonVegOptions.fish ? 270 : 0) +
+          (nonVegOptions.meat ? 860 : 0),
       };
     } else {
       dietaryHabitWaterFootprint = {
-        vegetarian: 790,
-        non_veg: 790 +
-        (nonVegOptions.egg ? 200 : 0) +
-        (nonVegOptions.fish ? 180 : 0) +
-        (nonVegOptions.meat ? 645 : 0),
+        vegetarian: 700,
+        non_veg:
+          700 +
+          (nonVegOptions.egg ? 200 : 0) +
+          (nonVegOptions.fish ? 180 : 0) +
+          (nonVegOptions.meat ? 645 : 0),
       };
     }
-    
-    const areaTypeFactor = areaType === "rural" ? 0 : 15; 
+
+    const areaTypeFactor = areaType === "rural" ? 0 : 15;
 
     // Calculate the water footprint
     const waterFootprint =
       baseWaterFootprint +
       genderWaterFootprint +
       dietaryHabitWaterFootprint[dietaryHabit] +
-      (milkAmount ? milkAmount * 1000 : 0)+
-      (fruits ? fruits * 30 : 0)+
-      areaTypeFactor;
+      (milkAmount ? milkAmount * 1000 : 0)/1000 +
+      (fruits ? fruits * 30 : 0)/1000 +
+      (vegetables ? vegetables*250 : 0)/1000+
+      areaTypeFactor+
+      20*shower;
 
     setSum(waterFootprint);
     setShowSum(true);
@@ -141,8 +157,8 @@ function SignInForm() {
             </label>
           </div>
         </div>
- {/* Display non-vegetarian options only when non-vegetarian dietary habit is selected */}
- {dietaryHabit === "non_veg" && (
+        {/* Display non-vegetarian options only when non-vegetarian dietary habit is selected */}
+        {dietaryHabit === "non_veg" && (
           <div className="formField">
             <label className="formFieldLabel">Non-Vegetarian Options</label>
             <div>
@@ -204,31 +220,55 @@ function SignInForm() {
         </div>
 
         <div className="formField">
-          <label>Milk Consumption (kg/day)</label>
+          <label className="formFieldLabel">Milk Consumption (grams/day)</label>
           <input
             type="number"
             name="milkAmount"
             value={milkAmount}
             onChange={handleChange}
+            className="formFieldInput"
           />
         </div>
         <div className="formField">
-          <label>Fruits Consumption (kg/day)</label>
+          <label className="formFieldLabel">Fruits Consumption (grams/day)</label>
           <input
             type="number"
             name="fruits"
             value={fruits}
             onChange={handleChange}
+            className="formFieldInput"
+          />
+        </div>
+        <div className="formField">
+          <label className="formFieldLabel">Vegetables Consumption (grams/day)</label>
+          <input
+            type="number"
+            name="vegetables"
+            value={vegetables}
+            onChange={handleChange}
+            className="formFieldInput"
+          />
+        </div>
+
+        <div className="formField">
+          <label className="formFieldLabel">Showers per day?</label>
+          <input
+            type="number"
+            name="shower"
+            value={shower}
+            onChange={handleChange}
+            className="formFieldInput"
           />
         </div>
 
         <div className="formField" style={{ marginBottom: "20px" }}>
-          <label>Age</label>
+          <label className="formFieldLabel">Age</label>
           <input
             type="number"
             name="age"
             value={age}
             onChange={handleChange}
+            className="formFieldInput"
           />
         </div>
 

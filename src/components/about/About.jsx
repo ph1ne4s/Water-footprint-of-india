@@ -9,8 +9,10 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
+      
       <Router basename="/react-auth-ui/">
         <div className="App">
+        <Back/>
           <div className="appAside" />
           <div className="appForm">
             <div className="pageSwitcher">

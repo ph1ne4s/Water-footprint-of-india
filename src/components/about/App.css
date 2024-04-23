@@ -80,17 +80,26 @@
 }
 
 .formField {
+  display: flex;
   margin-bottom: 40px;
+  flex-direction: row;
+  align-items: center;
+  color: #000;
 }
 
 .formFieldLabel {
   display: block;
   text-transform: uppercase;
   font-size: 0.9em;
-  color: white;
+  color: black;
+  margin-right: 20px; 
 }
+
 .formFieldInput {
-  width: 85%;
+  display: inline;
+  width: auto;
+  margin-left: 40px;
+  vertical-align: middle;
   background-color: transparent;
   border: none;
   color: rgb(0, 0, 0);
