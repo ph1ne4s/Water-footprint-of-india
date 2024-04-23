@@ -246,22 +246,22 @@ export const online = [
 ]
 export const team = [
   {
-    cover: "./images/team/t1.webp",
-    name: "Porf. Sharad K.Jain",
+    cover: "./images/team/prof.jfif",
+    name: "Prof. Sharad K Jain",
     work: "",
   },
   {
-    cover: "./images/team/t2.webp",
+    cover: "./images/team/avi.jpg",
     name: "Avi Jain",
     work: "",
   },
   {
-    cover: "./images/team/t3.webp",
+    cover: "./images/team/aviral.enc",
     name: "Aviral Jain",
     work: "",
   },
   {
-    cover: "./images/team/t4.webp",
+    cover: "./images/team/tanuja.jpg",
     name: "Tanuja Kumari",
     work: "",
   },
@@ -271,12 +271,12 @@ export const team = [
     work: "",
   },
   {
-    cover: "./images/team/t6.webp",
+    cover: "./images/team/sachin.enc",
     name: "Sachin Singh",
     work: "",
   },
   {
-    cover: "./images/team/t7.webp",
+    cover: "./images/team/aman.enc",
     name: "Aman Kumar",
     work: "",
   },
@@ -340,56 +340,62 @@ export const blog = [
     type: "admin",
     date: "JAN. 18, 2021",
     com: "3 COMMENTS ",
-    title: "Assessing the Water Footprint of India: Trends, Challenges, and Solutions",
-    desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia.",
-    cover: "../images/blog/hh.webp",
+    title: "What is your water footprint?",
+    desc: "How much water does it cost to make a product? Will calculating this cost or the 'corporate water footprint' help make businesses more water sustainable?",
+    cover: "../images/blog/wfoi.jpg",
+    link: "https://www.indiawaterportal.org/articles/what-your-water-footprint"
   },
   {
     id: 2,
     type: "admin",
     date: "API. 25, 2022",
     com: "5 COMMENTS ",
-    title: "Quantifying Water Use in India: Insights from Water Footprint Analysis",
-    desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia.",
-    cover: "../images/blog/monsoon.webp",
+    title: "Water in agriculture: Navigating the nexus of efficiency, innovation, and collaboration",
+    desc: "Tackling India's water crisis: A blueprint for agricultural water efficiency",
+    cover: "../images/blog/blog2.jpg",
+    link: "https://www.indiawaterportal.org/articles/water-agriculture-navigating-nexus-efficiency-innovation-and-collaboration"
   },
   {
     id: 3,
     type: "user",
     date: "MAY. 15, 2022",
     com: "10 COMMENTS ",
-    title: "Urbanization and Water Consumption in India: A Water Footprint Perspective",
-    desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia.",
-    cover: "../images/blog/trends.webp",
+    title: "Erring and recovering from water woes",
+    desc: "Water chronicles: Navigating through scarcity to security  ",
+    cover: "../images/blog/blog3.jfif",
+    link: "https://www.indiawaterportal.org/articles/erring-and-recovering-water-woes"
   },
-  // {
-  //   id: 4,
-  //   type: "admin",
-  //   date: "JAN. 02, 2022",
-  //   com: "3 COMMENTS ",
-  //   title: "Regional Disparities in Water Footprint across India: Challenges and Opportunities",
-  //   desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia.",
-  //   cover: "../images/blog/b4.webp",
-  // },
-  // {
-  //   id: 5,
-  //   type: "admin",
-  //   date: "DEC. 14, 2022",
-  //   com: "3 COMMENTS ",
-  //   title: "Evaluating the Virtual Water Trade of India: Implications for National Water Security",
-  //   desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia.",
-  //   cover: "../images/blog/b5.webp",
-  // },
-  // {
-  //   id: 6,
-  //   type: "user",
-  //   date: "JAN. 18, 2021",
-  //   com: "12 COMMENTS ",
-  //   title: "Build your Dream Software & Engineering Career",
-  //   desc: "A small river named Duden flows by their place and supplies it with the necessary regelialia.",
-  //   cover: "../images/blog/b6.webp",
-  // },
-]
+  {
+    id: 4,
+    type: "admin",
+    date: "JAN. 02, 2022",
+    com: "3 COMMENTS ",
+    title: "A new perspective on water conservation for startups in Indian agricultures",
+    desc: "Beyond the surface: Understanding water use in agriculture",
+    cover: "../images/blog/blog4.jpg",
+    link: "https://www.indiawaterportal.org/articles/new-perspective-water-conservation-startups-indian-agriculture"
+  },
+  {
+    id: 5,
+    type: "admin",
+    date: "DEC. 14, 2022",
+    com: "3 COMMENTS ",
+    title: "Evolution of state's role in rural drinking water governance in India",
+    desc: "Need to nudge state governments to evolve a detailed roadmap (planning, implementation and operations related strategies)—immediate, medium and long-term—for ensuring drinking water security.",
+    cover: "../images/blog/blog5.jpg",
+    link: "https://www.indiawaterportal.org/articles/evolution-states-role-rural-drinking-water-governance-india"
+  },
+  {
+    id: 6,
+    type: "user",
+    date: "JAN. 18, 2021",
+    com: "12 COMMENTS ",
+    title: "Ensuring sustainability of rural drinking water systems",
+    desc: "A summary of case presentations from a national symposium organised by IIM Bangalore, appointed by the center as the JJM Chair for O&M in collaboration with Arghyam and eGovernments Foundation.",
+    cover: "../images/blog/blog6.jpg",
+    link: "https://www.indiawaterportal.org/articles/ensuring-sustainability-rural-drinking-water-systems"
+  },
+  ]
 export const testimonal = [
   {
     id: 1,

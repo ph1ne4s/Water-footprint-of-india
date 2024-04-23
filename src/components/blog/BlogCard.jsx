@@ -1,7 +1,8 @@
 import React from "react"
 import { blog } from "../../dummydata"
-
+// import { useHistory } from 'react-router-dom';
 const BlogCard = () => {
+
   return (
     <>
       {blog.map((val) => (
@@ -24,7 +25,9 @@ const BlogCard = () => {
                 <label htmlFor=''>{val.com}</label>
               </span>
             </div>
-            <h1>{val.title}</h1>
+            <h1 style={{ cursor: 'pointer' }} onClick={() => window.open(val.link, '_blank')}>
+        {val.title}
+      </h1>
             <p>{val.desc}</p>
           </div>
         </div>

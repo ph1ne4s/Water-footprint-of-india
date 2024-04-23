@@ -5,8 +5,8 @@
   position: relative;
 }
 .team img {
-  width: 100%;
-  height: 100%;
+  width: 350px;
+  height: 370px;
 }
 .overlay {
   position: absolute;
