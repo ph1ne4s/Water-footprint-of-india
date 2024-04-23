@@ -33,3 +33,7 @@
     width: 100%;
   }
 }
+.larger-font {
+  /* color: black; */
+  font-size: 22px; /* Adjust the font size as needed */
+}
