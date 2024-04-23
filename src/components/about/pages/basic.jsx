@@ -6,11 +6,8 @@ function SignInForm() {
   const [gender, setGender] = useState("");
   const [country, setCountry] = useState("");
   const [dietaryHabit, setDietaryHabit] = useState("");
-  const [showerNumber, setShowerNumber] = useState("");
-  const [hasLawn, setHasLawn] = useState("");
-  const [hasCar, setHasCar] = useState("");
-  const [shoppingFrequency, setShoppingFrequency] = useState("");
-
+  const [age, setage] = useState("");
+ 
   const handleChange = (event) => {
     const { name, value } = event.target;
     if (name === "gender") {
@@ -19,44 +16,39 @@ function SignInForm() {
       setCountry(value);
     } else if (name === "dietaryHabit") {
       setDietaryHabit(value);
-    } else if (name === "showerNumber") {
-      setShowerNumber(value);
-    } else if (name === "hasLawn") {
-      setHasLawn(value);
-    } else if (name === "hasCar") {
-      setHasCar(value);
-    } else if (name === "shoppingFrequency") {
-      setShoppingFrequency(value);
-    }
+    } else if (name === "age") {
+      setage(value);
+    } 
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const baseWaterFootprint = 145;
-    const genderWaterFootprint = gender === "male" ? 55 : 50;
-    const dietaryHabitWaterFootprint = {
-      vegetarian: 563,
-      low_meat: 760,
-      heavy_meat: 939
+    const baseWaterFootprint = 132;
+    let genderWaterFootprint = 0;
+    let dietaryHabitWaterFootprint = {};
+    if(age>15){
+     genderWaterFootprint = gender === "male" ? 4 : 3.5;
+    }
+    else{
+       genderWaterFootprint = gender === "male" ? 3 : 2.5;
+    }
+    if(gender==="male"){
+     dietaryHabitWaterFootprint = {
+      vegetarian: 1213,
+      non_veg: 2303,
     };
-    const showerWaterFootprintPerDay = 11;
-    const lawnWaterFootprint = hasLawn === "Yes" ? 72 : 0;
-    const shoppingFrequencyWaterFootprint = {
-      low: 291,
-      mid: 583,
-      high: 1166
-    };
-    const carWaterFootprint = hasCar === "Yes" ? 10 : 0;
-  
+    }
+    else{
+       dietaryHabitWaterFootprint = {
+        vegetarian: 1090,
+        non_veg: 1875,
+      };
+    }
     // Calculate the water footprint
     const waterFootprint =
       baseWaterFootprint +
       genderWaterFootprint +
-      dietaryHabitWaterFootprint[dietaryHabit] +
-      showerNumber * showerWaterFootprintPerDay +
-      lawnWaterFootprint +
-      shoppingFrequencyWaterFootprint[shoppingFrequency] +
-      carWaterFootprint;
+      dietaryHabitWaterFootprint[dietaryHabit];
 
       setSum(waterFootprint);
     // No need to calculate sum, as we removed the number fields
@@ -111,107 +103,25 @@ function SignInForm() {
               <input
                 type="radio"
                 name="dietaryHabit"
-                value="low_meat"
+                value="non_veg"
                 onChange={handleChange}
               />{" "}
-              Low Meat Eater
+              Non-Vegetatian
             </label>
-            <label>
-              <input
-                type="radio"
-                name="dietaryHabit"
-                value="heavy_meat"
-                onChange={handleChange}
-              />{" "}
-              Heavy Meat Eater
-            </label>
+          
           </div>
         </div>
 
         <div className="formField" style={{ marginBottom: "20px" }}>
-          <label>Shower Number:</label>
+          <label>Age</label>
           <input
             type="number"
-            name="showerNumber"
-            value={showerNumber}
+            name="age"
+            value={age}
             onChange={handleChange}
           />
         </div>
 
-        <div className="formField">
-          <label>
-            Do you have a lawn?
-            <input
-              type="radio"
-              name="hasLawn"
-              value="Yes"
-              onChange={handleChange}
-            />{" "}
-            Yes
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="hasLawn"
-              value="No"
-              onChange={handleChange}
-            />{" "}
-            No
-          </label>
-        </div>
-
-        <div className="formField">
-          <label>
-            Do you have a Car?
-            <input
-              type="radio"
-              name="hasCar"
-              value="Yes"
-              onChange={handleChange}
-            />{" "}
-            Yes
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="hasCar"
-              value="No"
-              onChange={handleChange}
-            />{" "}
-            No
-          </label>
-        </div>
-
-        <div className="formField">
-          <label>Shopping Frequency:</label>
-          <label>
-            <input
-              type="radio"
-              name="shoppingFrequency"
-              value="low"
-              onChange={handleChange}
-            />{" "}
-            Basics
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="shoppingFrequency"
-              value="mid"
-              onChange={handleChange}
-            />{" "}
-            Likes it
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="shoppingFrequency"
-              value="high"
-              onChange={handleChange}
-            />{" "}
-            Shop till drop
-          </label>
-        </div>
 
         <div className="formField">
           <button className="formFieldButton">Submit</button>
@@ -220,7 +130,7 @@ function SignInForm() {
         {/* Conditionally render the sum */}
         {showSum && (
           <div className="formField">
-            <p>Your water footprint is: {sum}</p>
+            <p>Your water footprint is: {sum} L/day</p>
           </div>
         )}
       </form>

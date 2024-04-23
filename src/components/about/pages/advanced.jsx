@@ -1,110 +1,250 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
-class SignUpForm extends Component {
-  constructor() {
-    super();
+function SignInForm() {
+  const [sum, setSum] = useState(0);
+  const [showSum, setShowSum] = useState(false);
+  const [gender, setGender] = useState("");
+  const [country, setCountry] = useState("");
+  const [dietaryHabit, setDietaryHabit] = useState("");
+  const [age, setAge] = useState("");
+  const [areaType, setAreaType] = useState(""); // New state for area type
+  const [nonVegOptions, setNonVegOptions] = useState({
+    egg: false,
+    fish: false,
+    meat: false,
+  });
+  const [milkAmount, setMilkAmount] = useState(""); // State for non-vegetarian options
+  const [fruits,setfruits]=useState("");
 
-    this.state = {
-      email: "",
-      password: "",
-      name: "",
-      hasAgreed: false
-    };
+  const handleChange = (event) => {
+    const { name, value, checked } = event.target;
+    if (name === "gender") {
+      setGender(value);
+    } else if (name === "country") {
+      setCountry(value);
+    } else if (name === "dietaryHabit") {
+      setDietaryHabit(value);
+      // Reset non-vegetarian options when changing dietary habit
+      if (value === "vegetarian") {
+        setNonVegOptions({ egg: false, fish: false, meat: false });
+      }
+    } else if (name === "age") {
+      setAge(value);
+    } else if (name === "areaType") { // Handling area type radio button change
+      setAreaType(value);
+    } else if (name === "nonVegOption") { // Handling non-vegetarian options checkbox change
+      setNonVegOptions({ ...nonVegOptions, [value]: checked });
+    } else if (name === "milkAmount") { // Handling milk amount input change
+      setMilkAmount(value);
+    }
+    else if (name === "fruits") { // Handling milk amount input change
+      setfruits(value);
+    }
+    
+  };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const baseWaterFootprint = 132;
+    let genderWaterFootprint = 0;
+    let dietaryHabitWaterFootprint = {};
+    if (age > 15) {
+      genderWaterFootprint = gender === "male" ? 4 : 3.5;
+    } else {
+      genderWaterFootprint = gender === "male" ? 3 : 2.5;
+    }
+    if (gender === "male") {
+      dietaryHabitWaterFootprint = {
+        vegetarian: 913,
+        non_veg: 913 +
+        (nonVegOptions.egg ? 200 : 0) +
+        (nonVegOptions.fish ? 270 : 0) +
+        (nonVegOptions.meat ? 860 : 0),
+      };
+    } else {
+      dietaryHabitWaterFootprint = {
+        vegetarian: 790,
+        non_veg: 790 +
+        (nonVegOptions.egg ? 200 : 0) +
+        (nonVegOptions.fish ? 180 : 0) +
+        (nonVegOptions.meat ? 645 : 0),
+      };
+    }
+    
+    const areaTypeFactor = areaType === "rural" ? 0 : 15; 
 
-  handleChange(event) {
-    let target = event.target;
-    let value = target.type === "checkbox" ? target.checked : target.value;
-    let name = target.name;
+    // Calculate the water footprint
+    const waterFootprint =
+      baseWaterFootprint +
+      genderWaterFootprint +
+      dietaryHabitWaterFootprint[dietaryHabit] +
+      (milkAmount ? milkAmount * 1000 : 0)+
+      (fruits ? fruits * 30 : 0)+
+      areaTypeFactor;
 
-    this.setState({
-      [name]: value
-    });
-  }
+    setSum(waterFootprint);
+    setShowSum(true);
+  };
 
-  handleSubmit(e) {
-    e.preventDefault();
+  return (
+    <div className="formCenter">
+      <form className="formFields" onSubmit={handleSubmit}>
+        <div className="formField">
+          <label className="formFieldLabel">Gender</label>
+          <select
+            name="gender"
+            value={gender}
+            onChange={handleChange}
+            className="formFieldInput"
+          >
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
 
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
-  }
+        <div className="formField">
+          <label className="formFieldLabel">Country</label>
+          <select
+            name="country"
+            value={country}
+            onChange={handleChange}
+            className="formFieldInput"
+          >
+            <option value="">Select Country</option>
+            <option value="India">India</option>
+            {/* Add more countries as needed */}
+          </select>
+        </div>
 
-  render() {
-    return (
-      <div className="formCenter">
-        <form onSubmit={this.handleSubmit} className="formFields">
-          <div className="formField">
-            <label className="formFieldLabel" htmlFor="name">
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="formFieldInput"
-              placeholder="Enter your full name"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="formField">
-            <label className="formFieldLabel" htmlFor="password">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="formFieldInput"
-              placeholder="Enter your password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="formField">
-            <label className="formFieldLabel" htmlFor="email">
-              E-Mail Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="formFieldInput"
-              placeholder="Enter your email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </div>
-
-          <div className="formField">
-            <label className="formFieldCheckboxLabel">
+        <div className="formField">
+          <label className="formFieldLabel">Dietary Habit</label>
+          <div>
+            <label>
               <input
-                className="formFieldCheckbox"
-                type="checkbox"
-                name="hasAgreed"
-                value={this.state.hasAgreed}
-                onChange={this.handleChange}
+                type="radio"
+                name="dietaryHabit"
+                value="vegetarian"
+                onChange={handleChange}
               />{" "}
-              I agree all statements in{" "}
-              <a href="null" className="formFieldTermsLink">
-                terms of service
-              </a>
+              Vegetarian
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="dietaryHabit"
+                value="non_veg"
+                onChange={handleChange}
+              />{" "}
+              Non-Vegetarian
             </label>
           </div>
-
+        </div>
+ {/* Display non-vegetarian options only when non-vegetarian dietary habit is selected */}
+ {dietaryHabit === "non_veg" && (
           <div className="formField">
-            <button className="formFieldButton">Sign Up</button>{" "}
-            <Link to="/sign-in" className="formFieldLink">
-              I'm already member
-            </Link>
+            <label className="formFieldLabel">Non-Vegetarian Options</label>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  name="nonVegOption"
+                  value="egg"
+                  checked={nonVegOptions.egg}
+                  onChange={handleChange}
+                />{" "}
+                Egg
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="nonVegOption"
+                  value="fish"
+                  checked={nonVegOptions.fish}
+                  onChange={handleChange}
+                />{" "}
+                Fish
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="nonVegOption"
+                  value="meat"
+                  checked={nonVegOptions.meat}
+                  onChange={handleChange}
+                />{" "}
+                Meat
+              </label>
+            </div>
           </div>
-        </form>
-      </div>
-    );
-  }
+        )}
+        <div className="formField">
+          <label className="formFieldLabel">Area Type</label>
+          <div>
+            <label>
+              <input
+                type="radio"
+                name="areaType"
+                value="rural"
+                onChange={handleChange}
+              />{" "}
+              Rural
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="areaType"
+                value="urban"
+                onChange={handleChange}
+              />{" "}
+              Urban
+            </label>
+          </div>
+        </div>
+
+        <div className="formField">
+          <label>Milk Consumption (kg/day)</label>
+          <input
+            type="number"
+            name="milkAmount"
+            value={milkAmount}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="formField">
+          <label>Fruits Consumption (kg/day)</label>
+          <input
+            type="number"
+            name="fruits"
+            value={fruits}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="formField" style={{ marginBottom: "20px" }}>
+          <label>Age</label>
+          <input
+            type="number"
+            name="age"
+            value={age}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="formField">
+          <button className="formFieldButton">Submit</button>
+        </div>
+
+        {/* Conditionally render the sum */}
+        {showSum && (
+          <div className="formField">
+            <p>Your water footprint is: {sum} L/day</p>
+          </div>
+        )}
+      </form>
+    </div>
+  );
 }
-export default SignUpForm;
+
+export default SignInForm;
