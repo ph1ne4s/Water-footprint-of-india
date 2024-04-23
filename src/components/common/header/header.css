@@ -4,12 +4,13 @@
   color: #fff;
 }
 .logo h1 {
+  color: #000000;
   font-size: 35px;
   font-weight: 900;
 }
 .logo span{
   font-size: 20px;
-  
+  color: #000000;
 }
 .head .icon {
   margin-left: 10px;
@@ -17,6 +18,7 @@
 /*--------head------------*/
 /*--------header------------*/
 header {
+  
   background-color: rgba(255, 255, 255, 0.2);
   margin: 0 30px;
 }

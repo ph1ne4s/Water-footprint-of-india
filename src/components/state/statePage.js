@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Bar, Pie } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale } from 'chart.js/auto';
 import stateData from './stateData'; // Import stateData object
 import './statePage.css';
-
+ChartJS.register(CategoryScale);
 const StateDataVisualization = () => {
     const [selectedState, setSelectedState] = useState('Uttarakhand');
     const [selectedCategory, setSelectedCategory] = useState('');
