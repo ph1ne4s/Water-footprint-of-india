@@ -6,8 +6,8 @@ function SignInForm() {
   const [gender, setGender] = useState("");
   const [country, setCountry] = useState("");
   const [dietaryHabit, setDietaryHabit] = useState("");
-  const [age, setage] = useState("");
- 
+  const [age, setAge] = useState("");
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     if (name === "gender") {
@@ -17,8 +17,8 @@ function SignInForm() {
     } else if (name === "dietaryHabit") {
       setDietaryHabit(value);
     } else if (name === "age") {
-      setage(value);
-    } 
+      setAge(value);
+    }
   };
 
   const handleSubmit = (event) => {
@@ -26,20 +26,18 @@ function SignInForm() {
     const baseWaterFootprint = 132;
     let genderWaterFootprint = 0;
     let dietaryHabitWaterFootprint = {};
-    if(age>15){
-     genderWaterFootprint = gender === "male" ? 4 : 3.5;
+    if (age > 15) {
+      genderWaterFootprint = gender === "male" ? 4 : 3.5;
+    } else {
+      genderWaterFootprint = gender === "male" ? 3 : 2.5;
     }
-    else{
-       genderWaterFootprint = gender === "male" ? 3 : 2.5;
-    }
-    if(gender==="male"){
-     dietaryHabitWaterFootprint = {
-      vegetarian: 1213,
-      non_veg: 2303,
-    };
-    }
-    else{
-       dietaryHabitWaterFootprint = {
+    if (gender === "male") {
+      dietaryHabitWaterFootprint = {
+        vegetarian: 1213,
+        non_veg: 2303,
+      };
+    } else {
+      dietaryHabitWaterFootprint = {
         vegetarian: 1090,
         non_veg: 1875,
       };
@@ -50,7 +48,7 @@ function SignInForm() {
       genderWaterFootprint +
       dietaryHabitWaterFootprint[dietaryHabit];
 
-      setSum(waterFootprint);
+    setSum(waterFootprint);
     // No need to calculate sum, as we removed the number fields
     setShowSum(true);
   };
@@ -96,6 +94,7 @@ function SignInForm() {
                 name="dietaryHabit"
                 value="vegetarian"
                 onChange={handleChange}
+              
               />{" "}
               Vegetarian
             </label>
@@ -105,23 +104,23 @@ function SignInForm() {
                 name="dietaryHabit"
                 value="non_veg"
                 onChange={handleChange}
+               
               />{" "}
               Non-Vegetatian
             </label>
-          
           </div>
         </div>
 
         <div className="formField" style={{ marginBottom: "20px" }}>
-          <label>Age</label>
+          <label className="formFieldLabel">Age</label>
           <input
             type="number"
             name="age"
             value={age}
             onChange={handleChange}
+            className="formFieldInput"
           />
         </div>
-
 
         <div className="formField">
           <button className="formFieldButton">Submit</button>
