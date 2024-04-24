@@ -88,7 +88,7 @@ function SignInForm() {
     const areaTypeFactor = areaType === "rural" ? 0 : 15;
 
     // Calculate the water footprint
-    const waterFootprint =
+    let waterFootprint =
       baseWaterFootprint +
       genderWaterFootprint +
       dietaryHabitWaterFootprint[dietaryHabit] +
@@ -98,6 +98,11 @@ function SignInForm() {
       areaTypeFactor+
       20*shower;
 
+      if (age > 59 && age <= 70) {
+        waterFootprint = waterFootprint * 0.9; // Apply 90% reduction for age over 59 and under 70
+      } else if (age > 70) {
+        waterFootprint = waterFootprint * 0.8; // Apply 80% reduction for age over 70
+      }
     setSum(waterFootprint);
     setShowSum(true);
   };
