@@ -266,7 +266,7 @@ export const team = [
     work: "",
   },
   {
-    cover: "./images/team/t5.webp",
+    cover: "./images/team/ankush.jfif",
     name: "Ankush Jhariya",
     work: "",
   },
