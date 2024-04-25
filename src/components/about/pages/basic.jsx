@@ -111,7 +111,7 @@ function SignInForm() {
                 onChange={handleChange}
                
               />{" "}
-              Non-Vegetatian
+              Non-Vegetarian
             </label>
           </div>
         </div>
