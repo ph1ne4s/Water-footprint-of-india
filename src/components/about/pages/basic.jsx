@@ -68,6 +68,7 @@ function SignInForm() {
             value={gender}
             onChange={handleChange}
             className="formFieldInput"
+            required
           >
             <option value="">Select Gender</option>
             <option value="male">Male</option>
@@ -83,6 +84,7 @@ function SignInForm() {
             value={country}
             onChange={handleChange}
             className="formFieldInput"
+            required
           >
             <option value="">Select Country</option>
             <option value="India">India</option>
@@ -99,7 +101,7 @@ function SignInForm() {
                 name="dietaryHabit"
                 value="vegetarian"
                 onChange={handleChange}
-              
+                required
               />{" "}
               Vegetarian
             </label>
@@ -109,7 +111,7 @@ function SignInForm() {
                 name="dietaryHabit"
                 value="non_veg"
                 onChange={handleChange}
-               
+                required
               />{" "}
               Non-Vegetarian
             </label>
@@ -124,6 +126,7 @@ function SignInForm() {
             value={age}
             onChange={handleChange}
             className="formFieldInput"
+            required
           />
         </div>
 

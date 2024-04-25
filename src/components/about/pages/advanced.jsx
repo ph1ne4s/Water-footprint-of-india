@@ -7,13 +7,13 @@ function SignInForm() {
   const [country, setCountry] = useState("");
   const [dietaryHabit, setDietaryHabit] = useState("");
   const [age, setAge] = useState("");
-  const [areaType, setAreaType] = useState(""); // New state for area type
+  const [areaType, setAreaType] = useState("");
   const [nonVegOptions, setNonVegOptions] = useState({
     egg: false,
     fish: false,
     meat: false,
   });
-  const [milkAmount, setMilkAmount] = useState(""); // State for non-vegetarian options
+  const [milkAmount, setMilkAmount] = useState("");
   const [fruits, setFruits] = useState("");
   const [shower, setShower] = useState("");
   const [vegetables, setVegetables] = useState("");
@@ -26,31 +26,22 @@ function SignInForm() {
       setCountry(value);
     } else if (name === "dietaryHabit") {
       setDietaryHabit(value);
-      // Reset non-vegetarian options when changing dietary habit
       if (value === "vegetarian") {
         setNonVegOptions({ egg: false, fish: false, meat: false });
       }
     } else if (name === "age") {
       setAge(value);
     } else if (name === "areaType") {
-      // Handling area type radio button change
       setAreaType(value);
     } else if (name === "nonVegOption") {
-      // Handling non-vegetarian options checkbox change
       setNonVegOptions({ ...nonVegOptions, [value]: checked });
     } else if (name === "milkAmount") {
-      // Handling milk amount input change
       setMilkAmount(value);
     } else if (name === "fruits") {
-      // Handling fruits input change
       setFruits(value);
-    }
-    else if (name === "shower") {
-      // Handling fruits input change
+    } else if (name === "shower") {
       setShower(value);
-    }
-    else if (name === "vegetables") {
-      // Handling fruits input change
+    } else if (name === "vegetables") {
       setVegetables(value);
     }
   };
@@ -87,22 +78,21 @@ function SignInForm() {
 
     const areaTypeFactor = areaType === "rural" ? 0 : 15;
 
-    // Calculate the water footprint
     let waterFootprint =
       baseWaterFootprint +
       genderWaterFootprint +
       dietaryHabitWaterFootprint[dietaryHabit] +
-      (milkAmount ? milkAmount * 1000 : 0)/1000 +
-      (fruits ? fruits * 30 : 0)/1000 +
-      (vegetables ? vegetables*250 : 0)/1000+
-      areaTypeFactor+
-      20*shower;
+      (milkAmount ? milkAmount * 1000 : 0) / 1000 +
+      (fruits ? fruits * 30 : 0) / 1000 +
+      (vegetables ? vegetables * 250 : 0) / 1000 +
+      areaTypeFactor +
+      20 * shower;
 
-      if (age > 59 && age <= 70) {
-        waterFootprint = waterFootprint * 0.9; // Apply 90% reduction for age over 59 and under 70
-      } else if (age > 70) {
-        waterFootprint = waterFootprint * 0.8; // Apply 80% reduction for age over 70
-      }
+    if (age > 59 && age <= 70) {
+      waterFootprint = waterFootprint * 0.9;
+    } else if (age > 70) {
+      waterFootprint = waterFootprint * 0.8;
+    }
     setSum(waterFootprint);
     setShowSum(true);
   };
@@ -117,6 +107,7 @@ function SignInForm() {
             value={gender}
             onChange={handleChange}
             className="formFieldInput"
+            required
           >
             <option value="">Select Gender</option>
             <option value="male">Male</option>
@@ -132,6 +123,7 @@ function SignInForm() {
             value={country}
             onChange={handleChange}
             className="formFieldInput"
+            required
           >
             <option value="">Select Country</option>
             <option value="India">India</option>
@@ -148,6 +140,7 @@ function SignInForm() {
                 name="dietaryHabit"
                 value="vegetarian"
                 onChange={handleChange}
+                required
               />{" "}
               Vegetarian
             </label>
@@ -157,12 +150,13 @@ function SignInForm() {
                 name="dietaryHabit"
                 value="non_veg"
                 onChange={handleChange}
+                required
               />{" "}
               Non-Vegetarian
             </label>
           </div>
         </div>
-        {/* Display non-vegetarian options only when non-vegetarian dietary habit is selected */}
+
         {dietaryHabit === "non_veg" && (
           <div className="formField">
             <label className="formFieldLabel">Non-Vegetarian Options</label>
@@ -200,6 +194,7 @@ function SignInForm() {
             </div>
           </div>
         )}
+
         <div className="formField">
           <label className="formFieldLabel">Area Type</label>
           <div>
@@ -209,6 +204,7 @@ function SignInForm() {
                 name="areaType"
                 value="rural"
                 onChange={handleChange}
+                required
               />{" "}
               Rural
             </label>
@@ -218,6 +214,7 @@ function SignInForm() {
                 name="areaType"
                 value="urban"
                 onChange={handleChange}
+                required
               />{" "}
               Urban
             </label>
@@ -232,6 +229,7 @@ function SignInForm() {
             value={milkAmount}
             onChange={handleChange}
             className="formFieldInput"
+            required
           />
         </div>
         <div className="formField">
@@ -242,6 +240,7 @@ function SignInForm() {
             value={fruits}
             onChange={handleChange}
             className="formFieldInput"
+            required
           />
         </div>
         <div className="formField">
@@ -252,6 +251,7 @@ function SignInForm() {
             value={vegetables}
             onChange={handleChange}
             className="formFieldInput"
+            required
           />
         </div>
 
@@ -263,6 +263,7 @@ function SignInForm() {
             value={shower}
             onChange={handleChange}
             className="formFieldInput"
+            required
           />
         </div>
 
@@ -274,6 +275,7 @@ function SignInForm() {
             value={age}
             onChange={handleChange}
             className="formFieldInput"
+            required
           />
         </div>
 
@@ -281,7 +283,6 @@ function SignInForm() {
           <button className="formFieldButton">Submit</button>
         </div>
 
-        {/* Conditionally render the sum */}
         {showSum && (
           <div className="formField">
             <p>Your water footprint is: {sum} L/day</p>
