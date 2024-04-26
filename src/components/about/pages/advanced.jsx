@@ -88,7 +88,7 @@ function SignInForm() {
       areaTypeFactor +
       20 * shower;
 
-    if (age > 59 && age <= 70) {
+    if (age > 45 && age <= 70) {
       waterFootprint = waterFootprint * 0.9;
     } else if (age > 70) {
       waterFootprint = waterFootprint * 0.8;
